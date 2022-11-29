@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/App.js",
+  "homepage": "https://alirezaa-latifi.github.io/adopt-me",
   "scripts": {
     "format:": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +25,7 @@
     "process": "^0.11.10"
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3"
