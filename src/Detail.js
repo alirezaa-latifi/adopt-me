@@ -10,7 +10,7 @@ const Detail = () => {
   }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   async function requestPet() {
-    const response = await fetch(`http://pets-v2.dev-apis.com/pets?id=${id}`);
+    const response = await fetch(`https://pets-v2.dev-apis.com/pets?id=${id}`);
     const {
       pets: [pet],
     } = await response.json();

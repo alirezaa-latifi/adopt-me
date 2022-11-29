@@ -28,7 +28,7 @@ const SearchParams = () => {
     setBreeds([]);
     // console.log("before await");
     const response = await fetch(
-      `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
+      `https://pets-v2.dev-apis.com/breeds?animal=${animal}`
     );
     const { breeds: newBreeds } = await response.json();
     localCache[animal] = newBreeds;
@@ -42,7 +42,7 @@ const SearchParams = () => {
 
   async function requestPets() {
     const response = await fetch(
-      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+      `https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
     );
     const { pets: newPets } = await response.json();
     setPets(newPets);
