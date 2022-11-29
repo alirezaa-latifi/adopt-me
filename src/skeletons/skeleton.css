@@ -1,0 +1,83 @@
+.skeleton {
+  background-color: #ebebeb;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  z-index: 1000;
+}
+
+.skeleton.subtitle {
+  width: 60%;
+  height: 1.2rem;
+}
+.skeleton.text {
+  width: 100%;
+  height: 1.2rem;
+}
+
+.skeleton.text--last {
+  width: 80%;
+  height: 1.2rem;
+}
+
+.skeleton.title {
+  background: #e3e3e3;
+  width: 40%;
+  height: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.skeleton.img {
+  width: 15rem;
+  height: 15rem;
+}
+
+.skeleton.img--circle {
+  border-radius: 100rem;
+}
+
+.skeleton.btn {
+  background-color: rgb(219, 219, 219);
+  margin-top: 3rem;
+  width: 10rem;
+  padding: 1.6rem;
+}
+
+.postcard-skeleton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.postcard-skeleton > div {
+  width: 75%;
+}
+
+.postcard-skeleton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  left: -20rem;
+  background-color: rgb(255, 255, 255);
+  opacity: 0.4;
+  transform: skewX(-10deg);
+
+  animation: reflect 0.5s infinite alternate;
+}
+
+@keyframes reflect {
+  from {
+    left: -20rem;
+  }
+
+  to {
+    left: 40rem;
+  }
+}
