@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const localCache = {}; //TODO: using Caching
+const localCache = {};
 
 const useBreedsList = (animal) => {
   const [breeds, setBreeds] = useState([]);
