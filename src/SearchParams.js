@@ -1,40 +1,16 @@
 import { useEffect, useState } from "react";
+import useBreedsList from "./CustomHooks/useBreedsList";
 import Results from "./Results";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
-const localCache = {};
-// `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
 
 const SearchParams = () => {
   console.log("SearchParam");
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
-  const [breeds, setBreeds] = useState([]);
+  const [breeds] = useBreedsList(animal);
   const [pets, setPets] = useState([]);
-
-  useEffect(() => {
-    if (!animal) {
-      setBreeds([]);
-    } else if (localCache[animal]) {
-      setBreeds(localCache[animal]);
-    } else {
-      requesBreeds();
-      // console.log("useEffect");
-    }
-  }, [animal]); //eslint-disable-line react-hooks/exhaustive-deps
-
-  async function requesBreeds() {
-    setBreeds([]);
-    // console.log("before await");
-    const response = await fetch(
-      `https://pets-v2.dev-apis.com/breeds?animal=${animal}`
-    );
-    const { breeds: newBreeds } = await response.json();
-    localCache[animal] = newBreeds;
-    setBreeds(localCache[animal]);
-    // console.log("after await");
-  }
 
   useEffect(() => {
     requestPets();
