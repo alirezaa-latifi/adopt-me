@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 const Pet = ({ pet }) => {
   return (
     <div className="pet-card">
-      <img src={pet.images[0]} alt={pet.name} className="pet-card__img" />
+      <img
+        src={
+          pet.images.length
+            ? pet.images[0]
+            : "http://pets-images.dev-apis.com/pets/none.jpg"
+        }
+        alt={pet.name}
+        className="pet-card__img"
+      />
       <div className="pet-card__content">
         <h2 className="pet-card__title">{pet.name}</h2>
         <p>{pet.state + ", " + pet.city}</p>
