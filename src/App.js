@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import Header from "./Header";
 import SearchParams from "./SearchParams";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Details from "./Detail";
+import Detail from "./Detail";
 const App = () => {
   console.log("App");
   return (
@@ -11,7 +11,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path="/" element={<SearchParams />} />
-          <Route path="/details/:id" element={<Details />} />
+          <Route path="/details/:id" element={<Detail />} />
         </Routes>
       </HashRouter>
     </div>

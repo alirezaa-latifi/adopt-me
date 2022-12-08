@@ -1,36 +1,44 @@
-import { useEffect, useState } from "react";
+import { Component } from "react";
 import { useParams } from "react-router-dom";
+import Carousel from "./Carousel";
 
-const Detail = () => {
-  const { id } = useParams();
-  const [pet, setPet] = useState();
-  console.log(pet);
-  useEffect(() => {
-    requestPet();
-  }, []); //eslint-disable-line react-hooks/exhaustive-deps
-
-  async function requestPet() {
-    const response = await fetch(`https://pets-v2.dev-apis.com/pets?id=${id}`);
-    const {
-      pets: [pet],
-    } = await response.json();
-    setPet(pet);
+class Detail extends Component {
+  state = {};
+  async componentDidMount() {
+    const response = await fetch(
+      `http://pets-v2.dev-apis.com/pets?id=${this.props.id}`
+    );
+    const { pets } = await response.json();
+    this.setState({ ...pets[0] });
   }
 
-  return (
-    <div className="detail">
-      {!pet ? (
-        "Loading . . . "
-      ) : (
-        <div className="detail__box container">
-          <h2>{pet.name}</h2>
-          <p>{pet.state + ", " + pet.city}</p>
-          <p>{pet.breed + " ~ " + pet.animal}</p>
-          <p>ID : {pet.id}</p>
+  render() {
+    console.log(this.state);
+
+    if (!Object.keys(this.state).length) {
+      return (
+        <div className="detail container">
+          <h2>Loading ...</h2>
         </div>
-      )}
-    </div>
-  );
+      );
+    }
+    const { name, animal, breed, city, state, description, images } =
+      this.state;
+    return (
+      <div className="detail container">
+        <Carousel images={images} />
+        <h1 className="detail__titile">{name}</h1>
+        <span>{`${city}, ${state} ~ `}</span>
+        <span>{`${breed}, ${animal.toUpperCase()}`}</span>
+        <p className="detail__desc">{description}</p>
+      </div>
+    );
+  }
+}
+
+const WrappedDetail = () => {
+  const { id } = useParams();
+  return <Detail id={id} />;
 };
 
-export default Detail;
+export default WrappedDetail;
