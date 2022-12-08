@@ -7,8 +7,8 @@ const PostCardSkeleton = () => {
       <SkeletonElements type="img img--circle" />
       <div>
         <SkeletonElements type="title" />
-        <SkeletonElements type="subtitle" />
-        <SkeletonElements type="subtitle" />
+        <SkeletonElements type="subtitle--long" />
+        <SkeletonElements type="subtitle--long" />
         <SkeletonElements type="btn" />
       </div>
     </div>

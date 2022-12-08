@@ -6,9 +6,15 @@
 }
 
 .skeleton.subtitle {
+  width: 40%;
+  height: 1.2rem;
+}
+
+.skeleton.subtitle--long {
   width: 60%;
   height: 1.2rem;
 }
+
 .skeleton.text {
   width: 100%;
   height: 1.2rem;
@@ -19,9 +25,14 @@
   height: 1.2rem;
 }
 
+.skeleton.subtitle + .skeleton.text,
+.skeleton.text--last + .skeleton.text {
+  margin-top: 2rem;
+}
+
 .skeleton.title {
   background: #e3e3e3;
-  width: 40%;
+  width: 30%;
   height: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -35,12 +46,20 @@
   border-radius: 100rem;
 }
 
+.skeleton.img--hero {
+  width: min(350px, 100%);
+  height: 350px;
+  margin-bottom: 4rem;
+}
+
 .skeleton.btn {
   background-color: rgb(219, 219, 219);
   margin-top: 3rem;
   width: 10rem;
   padding: 1.6rem;
 }
+
+/* PostCardSkeleton */
 
 .postcard-skeleton {
   position: relative;
@@ -74,10 +93,43 @@
 
 @keyframes reflect {
   from {
-    left: -20rem;
+    left: -30rem;
   }
 
   to {
-    left: 40rem;
+    left: 70rem;
+  }
+}
+
+/* DetailSkeleton */
+.loading {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.loading-item {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(107, 107, 107);
+  border-radius: 100%;
+}
+
+.loading-item-1 {
+  animation: loading 0.5s infinite alternate;
+}
+
+.loading-item-2 {
+  animation: loading 0.5s 0.15s infinite alternate;
+}
+.loading-item-3 {
+  animation: loading 0.5s 0.3s infinite alternate;
+}
+
+@keyframes loading {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.4);
   }
 }

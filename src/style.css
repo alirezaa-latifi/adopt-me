@@ -65,6 +65,7 @@ button {
 /* App */
 
 .app {
+  padding-bottom: 2rem;
   min-height: 100vh;
   background-color: rgb(233, 233, 233);
 }
@@ -85,7 +86,7 @@ button {
 /* SearchParams */
 
 .search-params {
-  padding: 5rem;
+  padding-block: 5rem;
 }
 
 .form {
@@ -201,7 +202,7 @@ button {
 
 .detail {
   margin-block: 5rem;
-  padding: 3rem;
+  padding: 4rem;
   background-color: #fff;
   border-radius: 1.5rem;
 }

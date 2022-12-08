@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
+import DetailSkeleton from "./skeletons/DetailSkeleton";
 
 class Detail extends Component {
   state = {};
@@ -18,7 +19,7 @@ class Detail extends Component {
     if (!Object.keys(this.state).length) {
       return (
         <div className="detail container">
-          <h2>Loading ...</h2>
+          <DetailSkeleton />
         </div>
       );
     }
