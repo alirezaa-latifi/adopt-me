@@ -5,6 +5,10 @@ class Carousel extends Component {
     activeImg: 0,
   };
 
+  static defaultProps = {
+    images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
+  };
+
   handleClick = (e) => {
     this.setState({ activeImg: +e.target.dataset.index });
   };
@@ -14,7 +18,7 @@ class Carousel extends Component {
     return (
       <div className="carousel">
         <div className="carousel__big">
-          <img src={images[this.state.activeImg]} alt="animal" />
+          <img src={this.props.images[this.state.activeImg]} alt="animal" />
         </div>
         <div className="carousel__smallers">
           {images.map((src, idx) => (
