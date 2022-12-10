@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useBreedsList from "./CustomHooks/useBreedsList";
+import useBreedsList from "../CustomHooks/useBreedsList";
 import Results from "./Results";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];

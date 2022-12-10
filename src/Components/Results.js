@@ -1,5 +1,5 @@
 import Pet from "./Pet";
-import PostCardSkeleton from "./skeletons/PetCardSkeleton";
+import PostCardSkeleton from "../Skeletons/PetCardSkeleton";
 
 const skeletonArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 

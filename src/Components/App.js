@@ -1,8 +1,9 @@
 import { createRoot } from "react-dom/client";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import SearchParams from "./SearchParams";
-import { HashRouter, Routes, Route } from "react-router-dom";
 import Detail from "./Detail";
+
 const App = () => {
   console.log("App");
   return (

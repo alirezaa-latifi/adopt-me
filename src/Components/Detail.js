@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
-import DetailSkeleton from "./skeletons/DetailSkeleton";
+import DetailSkeleton from "../Skeletons/DetailSkeleton";
 
 class Detail extends Component {
   state = {};
