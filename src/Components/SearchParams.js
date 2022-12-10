@@ -4,6 +4,7 @@ import Results from "./Results";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
+// Can be Refactore with using react-quert & uncontrolled form. But I prefer using useEffect here.
 const SearchParams = () => {
   console.log("SearchParam");
   const [location, setLocation] = useState("");
