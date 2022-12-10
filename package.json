@@ -16,6 +16,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.5",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@tanstack/eslint-plugin-query": "^4.15.1",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
