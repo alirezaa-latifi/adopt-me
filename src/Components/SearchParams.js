@@ -1,63 +1,53 @@
-import { useEffect, useState } from "react";
-import useBreedsList from "../CustomHooks/useBreedsList";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import Results from "./Results";
+import useBreedsList from "../CustomHooks/useBreedsList";
+import fetchPets from "../APIs/fetchPets";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
-// Can be Refactore with using react-quert & uncontrolled form. But I prefer using useEffect here.
 const SearchParams = () => {
-  console.log("SearchParam");
-  const [location, setLocation] = useState("");
+  const [searchParams, setSearchParams] = useState({
+    location: "",
+    animal: "",
+    breed: "",
+  });
   const [animal, setAnimal] = useState("");
-  const [breed, setBreed] = useState("");
   const [breeds] = useBreedsList(animal);
-  const [pets, setPets] = useState([]);
-
-  useEffect(() => {
-    requestPets();
-  }, []); //eslint-disable-line react-hooks/exhaustive-deps
-
-  async function requestPets() {
-    const response = await fetch(
-      `https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
-    );
-    const { pets: newPets } = await response.json();
-    setPets(newPets);
-  }
-
+  const result = useQuery(["pets", searchParams], fetchPets);
+  const pets = result?.data?.pets ?? [];
   return (
     <div className="search-params">
       <form
         className="form"
         onSubmit={(e) => {
           e.preventDefault();
-          requestPets();
+          const formData = new FormData(e.target);
+          setSearchParams({
+            location: formData.get("location") ?? "",
+            animal: formData.get("animal") ?? "",
+            breed: formData.get("breed") ?? "",
+          });
         }}
       >
         {/* location ***********************************************/}
         <label className="form__label">
           Location:
-          <input
-            className="form__item"
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          />
+          <input className="form__item" type="text" name="location" />
         </label>
         {/* animal **************************************************/}
         <div className="form__selects">
           <label className="form__label">
             Animal:
             <select
+              name="animal"
               className="form__item"
               value={animal}
               onChange={(e) => {
                 setAnimal(e.target.value);
-                setBreed("");
               }}
               onBlur={(e) => {
                 setAnimal(e.target.value);
-                setBreed("");
               }}
             >
               <option></option>
@@ -74,9 +64,7 @@ const SearchParams = () => {
             <select
               className="form__item"
               disabled={!breeds.length}
-              value={breed}
-              onChange={(e) => setBreed(e.target.value)}
-              onBlur={(e) => setBreed(e.target.value)}
+              name="breed"
             >
               <option></option>
               {breeds.map((br) => (
