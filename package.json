@@ -2,6 +2,7 @@
   "name": "adopt-me",
   "version": "1.0.0",
   "description": "",
+  "source": "/src/index.html",
   "homepage": "https://alirezaa-latifi.github.io/adopt-me",
   "scripts": {
     "format:": "prettier --write \"src/**/*.{js,jsx}\"",
