@@ -207,10 +207,36 @@ button {
   border-radius: 1.5rem;
 }
 
+.detail__header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .detail__title {
   font-size: 4rem;
 }
 
+.detail__line {
+  width: 100%;
+  border: 1px dashed #444;
+}
+
+.detail__cta {
+  min-width: max-content;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.detail__cta:hover,
+.detail__cta:active {
+  color: black;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px black;
+}
 .detail__desc {
   margin-top: 1rem;
   line-height: 1.7;

@@ -30,7 +30,11 @@ const Detail = () => {
   return (
     <div className="detail container">
       <Carousel images={images} />
-      <h1 className="detail__titile">{name}</h1>
+      <div className="detail__header">
+        <h1 className="detail__title">{name}</h1>
+        <div className="detail__line"></div>
+        <button className="detail__cta">Adopt me</button>
+      </div>
       <span>{`${city}, ${state} ~ `}</span>
       <span>{`${breed}, ${animal.toUpperCase()}`}</span>
       <p className="detail__desc">{description}</p>
