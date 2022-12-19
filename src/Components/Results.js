@@ -8,7 +8,18 @@ const Results = ({ pets }) => {
     <div className="results container">
       {!pets.length
         ? skeletonArr.map((el) => <PostCardSkeleton key={el} />)
-        : pets.map((pet) => <Pet key={pet.id} pet={pet} />)}
+        : pets.map((pet) => (
+            <Pet
+              key={pet.id}
+              name={pet.name}
+              animal={pet.animal}
+              breed={pet.breed}
+              city={pet.city}
+              state={pet.state}
+              images={pet.images}
+              id={pet.id}
+            />
+          ))}
     </div>
   );
 };
