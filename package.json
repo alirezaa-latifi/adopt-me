@@ -9,6 +9,7 @@
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "test": "jest --env=@happy-dom/jest-environment",
     "test:watch": "jest --watch --env=@happy-dom/jest-environment",
+    "test:coverage": "jest --coverage --env=@happy-dom/jest-environment",
     "dev": "parcel src/index.html",
     "build": "parcel build --dist-dir build",
     "predeploy": "npm run build",
